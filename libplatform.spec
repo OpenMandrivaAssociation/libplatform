@@ -39,7 +39,6 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
-%cmake_install
 
 %post -p /sbin/ldconfig
 
