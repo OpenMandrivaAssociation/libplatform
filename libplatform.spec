@@ -9,8 +9,6 @@ Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
-BuildRequires:  gcc-c++
-BuildRequires:  pkg-config
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
