@@ -9,8 +9,6 @@ Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
-BuildRequires:  gcc-c++
-BuildRequires:  pkg-config
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
@@ -18,14 +16,14 @@ Platform support library used by libCEC and binary add-ons for Kodi.
 
 %package -n %{name}%{_SO_nr}
 Summary:        Platform support library used by libCEC and binary add-ons for Kodi
-Group:          Hardware/TV
+Group:          Video
 
 %description -n %{name}%{_SO_nr}
 Platform support library used by libCEC and binary add-ons for Kodi.
 
 %package devel
 Summary:        Platform support library used by libCEC development files
-Group:          Development/Languages/C and C++
+Group:          Development/C
 Requires:       %{name}%{_SO_nr} = %{version}
 
 %description devel
