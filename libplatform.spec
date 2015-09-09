@@ -10,6 +10,8 @@ Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Patch0:         platform-1.0.10-install.patch
+
 
 %description
 Platform support library used by libCEC and binary add-ons for Kodi.
@@ -31,6 +33,7 @@ Development files for platform support library used by libCEC.
 
 %prep
 %setup -q -n platform-%{version}
+%patch0 -p0 -b .install
 
 %build
 %cmake
