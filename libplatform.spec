@@ -37,7 +37,7 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
-%cmake_install
+%make_install
 
 
 %files -n %{name}%{_SO_nr}
