@@ -31,7 +31,7 @@ Requires:       %{name}%{_SO_nr} = %{version}
 Development files for platform support library used by libCEC.
 
 %prep
-%setup -q
+%setup -q -n platform-%{version}
 %patch0 -p0 -b .install
 
 %build
