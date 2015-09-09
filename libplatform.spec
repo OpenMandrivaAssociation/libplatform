@@ -9,7 +9,6 @@ Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Patch0:         platform-1.0.10-install.patch
 
 
@@ -32,7 +31,7 @@ Requires:       %{name}%{_SO_nr} = %{version}
 Development files for platform support library used by libCEC.
 
 %prep
-%setup -q -n platform-%{version}
+%setup -q
 %patch0 -p0 -b .install
 
 %build
@@ -41,6 +40,11 @@ Development files for platform support library used by libCEC.
 
 %install
 %make_install
+
+%post -p /sbin/ldconfig
+
+
+%postun -p /sbin/ldconfig
 
 
 %files -n %{name}%{_SO_nr}
