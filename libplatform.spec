@@ -38,7 +38,7 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
-ls -al
+ls -al build/
 
 #No Install file so do it manually
 #dirs
