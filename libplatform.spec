@@ -9,7 +9,8 @@ Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+#Patch0:         platform-1.0.10-install.patch
+
 
 %description
 Platform support library used by libCEC and binary add-ons for Kodi.
@@ -37,7 +38,44 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
-%cmake_install
+ls -al
+
+#No Install file so do it manually
+#dirs
+install -d -m755 $RPM_BUILD_ROOT%{_libdir}/platform
+install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform
+install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/posix
+install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/sockets
+install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/threads
+install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/util
+#libs
+install -m755 libplatform.so.1.0.10 $RPM_BUILD_ROOT%{_libdir}
+install -m777 libplatform.so.1.0 $RPM_BUILD_ROOT%{_libdir}
+install -m777 libplatform.so $RPM_BUILD_ROOT%{_libdir}
+#include
+install -m644 src/os.h $RPM_BUILD_ROOT%{_includedir}/platform
+install -m644 src/posix/os-socket.h $RPM_BUILD_ROOT%{_includedir}/platform/posix
+install -m644 src/posix/os-threads.h $RPM_BUILD_ROOT%{_includedir}/platform/posix
+install -m644 src/posix/os-types.h $RPM_BUILD_ROOT%{_includedir}/platform/posix
+install -m644 src/sockets/cdevsocket.h $RPM_BUILD_ROOT%{_includedir}/platform/sockets
+install -m644 src/sockets/socket.h $RPM_BUILD_ROOT%{_includedir}/platform/sockets
+install -m644 src/sockets/tcp.h $RPM_BUILD_ROOT%{_includedir}/platform/sockets
+install -m644 src/threads/atomics.h $RPM_BUILD_ROOT%{_includedir}/platform/threads
+install -m644 src/threads/mutex.h $RPM_BUILD_ROOT%{_includedir}/platform/threads
+install -m644 src/threads/threads.h $RPM_BUILD_ROOT%{_includedir}/platform/threads
+install -m644 src/util/StdString.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 src/util/StringUtils.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 src/util/atomic.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 src/util/buffer.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 src/util/timeutils.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 src/util/util.h $RPM_BUILD_ROOT%{_includedir}/platform/util
+install -m644 platform.pc $RPM_BUILD_ROOT%{_libdir}/pkgconfig
+install -m644 platform-config.cmake $RPM_BUILD_ROOT%{_libdir}platform
+
+%post -p /sbin/ldconfig
+
+
+%postun -p /sbin/ldconfig
 
 
 %files -n %{name}%{_SO_nr}
