@@ -49,9 +49,9 @@ install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/sockets
 install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/threads
 install -d -m755 $RPM_BUILD_ROOT%{_includedir}/platform/util
 #libs
-install -m755 libplatform.so.1.0.10 $RPM_BUILD_ROOT%{_libdir}/libplatform.so.1.0.10
-install -m777 libplatform.so.1.0 $RPM_BUILD_ROOT%{_libdir}/libplatform.so.1.0
-install -m777 libplatform.so $RPM_BUILD_ROOT%{_libdir}/libplatform.so
+#install -m755 libplatform.so.1.0.10 $RPM_BUILD_ROOT%{_libdir}/libplatform.so.1.0.10
+#install -m777 libplatform.so.1.0 $RPM_BUILD_ROOT%{_libdir}/libplatform.so.1.0
+#install -m777 libplatform.so $RPM_BUILD_ROOT%{_libdir}/libplatform.so
 #include
 install -m644 src/os.h %{_includedir}/platform/os.h
 install -m644 src/posix/os-socket.h %{_includedir}/platform/posix/os-socket.h
