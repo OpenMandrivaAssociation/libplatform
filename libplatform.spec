@@ -39,11 +39,6 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
-#lib symlinks
-cp libplatform.a libplatform.so.1.0.10
-rm -f cp libplatform.a
-ln -sf libplatform.so.1.0.10 libplatform.so.1.0
-ln -sf libplatform.so.1.0.10 libplatform.so
 
 #No Install file so do it manually
 #dirs
