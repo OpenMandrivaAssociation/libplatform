@@ -1,4 +1,5 @@
 %define _SO_nr 1_0
+%define debug_package %{nil}
 
 Name:           libplatform
 Version:        1.0.10
