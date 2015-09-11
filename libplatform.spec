@@ -7,9 +7,9 @@ Summary:        Platform support library used by libCEC and binary add-ons for K
 License:        GPL-2.0+
 Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
-Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
+Source0:        https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
+Source1:	libplatform.rpmlintrc
 BuildRequires:  cmake
-Patch0:         platform-1.0.10-install.patch
 
 
 %description
@@ -32,14 +32,14 @@ Development files for platform support library used by libCEC.
 
 %prep
 %setup -q -n platform-%{version}
-%patch0 -p0 -b .install
 
 %build
 %cmake
 %make
 
 %install
-ls -al build/
+rm -rf $RPM_BUILD_ROOT
+
 %make_install -C build
 
 %post -p /sbin/ldconfig
@@ -55,10 +55,5 @@ ls -al build/
 %files devel
 %{_libdir}/%{name}.so
 %{_includedir}/platform/
-%{_includedir}/platform/posix/
-%{_includedir}/platform/sockets/
-%{_includedir}/platform/threads/
-%{_includedir}/platform/util/
-%{_libdir}/pkgconfig/platform.pc
-%{_libdir}/platform
-%{_libdir}/platform/platform-config.cmake
+%{_libdir}/pkgconfig/*
+%{_libdir}/platform/
