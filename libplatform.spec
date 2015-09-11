@@ -9,7 +9,6 @@ Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
 Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
 BuildRequires:  cmake
-#Patch0:         platform-1.0.10-install.patch
 
 
 %description
@@ -55,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %{_libdir}/%{name}.so
 %{_includedir}/platform/
-%{_libdir}/pkgconfig/platform.pc
+%{_libdir}/pkgconfig/*
 %{_libdir}/platform/
