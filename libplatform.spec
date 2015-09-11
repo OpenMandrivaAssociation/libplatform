@@ -2,7 +2,7 @@
 
 Name:           libplatform
 Version:        1.0.10
-Release:        2
+Release:        1
 Summary:        Platform support library used by libCEC and binary add-ons for Kodi
 License:        GPL-2.0+
 Group:          Video
