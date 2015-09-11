@@ -38,6 +38,8 @@ Development files for platform support library used by libCEC.
 %make
 
 %install
+rm -rf $RPM_BUILD_ROOT
+
 %make_install -C build
 
 %post -p /sbin/ldconfig
