@@ -55,10 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %{_libdir}/%{name}.so
 %{_includedir}/platform/
-%{_includedir}/platform/posix/
-%{_includedir}/platform/sockets/
-%{_includedir}/platform/threads/
-%{_includedir}/platform/util/
 %{_libdir}/pkgconfig/platform.pc
-%{_libdir}/platform
-%{_libdir}/platform/platform-config.cmake
+%{_libdir}/platform/
