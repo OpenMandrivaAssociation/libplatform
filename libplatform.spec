@@ -7,7 +7,8 @@ Summary:        Platform support library used by libCEC and binary add-ons for K
 License:        GPL-2.0+
 Group:          Video
 Url:            https://github.com/Pulse-Eight/platform
-Source:         https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
+Source0:        https://github.com/Pulse-Eight/platform/archive/%{version}.tar.gz
+Source1:	libplatform.rpmlintrc
 BuildRequires:  cmake
 
 
